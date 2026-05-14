@@ -13,7 +13,7 @@ export default function ContactPage() {
         <h1 className="text-[32px] font-bold mb-4">Get in Touch</h1>
         <p className="text-[15px] text-[#555] leading-relaxed mb-12 max-w-[560px]">
           Whether you want to talk about a project, an open-source idea, or your
-          new favourite thing to do, I'm all ears.
+          new favourite thing to do, I&apos;m all ears.
         </p>
 
         <form

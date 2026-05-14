@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { techStack } from "@/lib/data";
 
 export default function AboutPage() {
@@ -95,9 +96,10 @@ export default function AboutPage() {
               key={num}
               className="aspect-square rounded-lg overflow-hidden border border-border bg-white group relative"
             >
-              <img
+              <Image
                 src={`/aboutimgs/img${num}.${num === 14 ? "png" : "jpg"}`}
                 alt={`Photo ${num}`}
+                fill
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300" />

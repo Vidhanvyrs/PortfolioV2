@@ -2,12 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  --line-color: #e5e7eb;
+@layer base {
+  body {
+    @apply bg-cream text-[#1a1a1a] leading-relaxed antialiased;
+  }
 }
-html.dark {
-  --line-color: rgba(255, 255, 255, 0.15);
+
+@layer utilities {
+  .blink-cursor {
+    border-right: 2px solid #1a1a1a;
+    animation: blink 0.8s step-end infinite;
+  }
 }
-.borderBlack {
-  @apply border border-black/10;
+
+@keyframes blink {
+
+  from,
+  to {
+    border-color: transparent;
+  }
+
+  50% {
+    border-color: #1a1a1a;
+  }
 }

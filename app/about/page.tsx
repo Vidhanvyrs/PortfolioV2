@@ -52,7 +52,7 @@ export default function AboutPage() {
           {techStack.map((tech, index) => (
             <span
               key={index}
-              className="inline-flex items-center gap-1.5 text-[13px] text-[#555] bg-orange-100 rounded-full border px-3 py-1 font-normal"
+              className="inline-flex items-center gap-1.5 text-[13px] text-[#555] bg-gray-50 rounded-full border border-terracotta px-3 py-1 font-normal"
             >
               <span className="text-sm">{tech.emoji}</span>
               {tech.label}

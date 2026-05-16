@@ -54,6 +54,21 @@ export interface Project {
 
 export const projectsData: Project[] = [
   {
+    slug: "tensai",
+    title: "tensAI — Enterprise Agentic RAG Platform",
+    description: "Digital Specialist Engineer at Infosys, building an enterprise-grade agentic RAG platform on SAP BTP.",
+    fullDescription: "tensAI is a sophisticated agentic RAG platform designed for enterprise scale. Built on SAP BTP, it enables seamless document ingestion, intelligent retrieval, and automated evaluation of AI responses. My work focused on architecting the core backend services, optimizing retrieval accuracy, and establishing robust evaluation frameworks to ensure high-fidelity grounded responses.",
+    category: "Professional Work",
+    tags: ["Python", "Flask", "SAP BTP", "RAG", "RAGAS", "Vector Search", "LLM"],
+    links: [{ label: "Infosys", href: "https://www.infosys.com/" }],
+    highlights: [
+      "Owned the Flask backend for tensAI, building retrieval workflows, document ingestion services, and integrations across SAP services.",
+      "Designed a hybrid retrieval pipeline combining BM25, dense vector search, and reranker, improving top-3 retrieval relevance by 38%.",
+      "Built multi-format document parsers for PDF, PPTX, DOCX, and Excel, significantly improving grounding reliability in RAG workflows.",
+      "Developed a RAGAS-based evaluation framework for automated hallucination monitoring, reducing evaluation turnaround time by 60%.",
+    ],
+  },
+  {
     slug: "commentme",
     title: "Commentme — Manage & Automate Cluttered Codebase",
     description:
@@ -115,21 +130,6 @@ export const projectsData: Project[] = [
     highlights: [
       "Built a Full Stack application implementing features like user authentication, profile creation, content sharing, and an embedded Spotify-like music player.",
       "Improved user experience with functionalities such as saving and liking posts, infinite scrolling, and responsive design.",
-    ],
-  },
-  {
-    slug: "tensai",
-    title: "tensAI — Enterprise Agentic RAG Platform",
-    description: "Digital Specialist Engineer at Infosys, building an enterprise-grade agentic RAG platform on SAP BTP.",
-    fullDescription: "tensAI is a sophisticated agentic RAG platform designed for enterprise scale. Built on SAP BTP, it enables seamless document ingestion, intelligent retrieval, and automated evaluation of AI responses. My work focused on architecting the core backend services, optimizing retrieval accuracy, and establishing robust evaluation frameworks to ensure high-fidelity grounded responses.",
-    category: "Professional Work",
-    tags: ["Python", "Flask", "SAP BTP", "RAG", "RAGAS", "Vector Search", "LLM"],
-    links: [{ label: "Infosys", href: "https://www.infosys.com/" }],
-    highlights: [
-      "Owned the Flask backend for tensAI, building retrieval workflows, document ingestion services, and integrations across SAP services.",
-      "Designed a hybrid retrieval pipeline combining BM25, dense vector search, and reranker, improving top-3 retrieval relevance by 38%.",
-      "Built multi-format document parsers for PDF, PPTX, DOCX, and Excel, significantly improving grounding reliability in RAG workflows.",
-      "Developed a RAGAS-based evaluation framework for automated hallucination monitoring, reducing evaluation turnaround time by 60%.",
     ],
   },
   {

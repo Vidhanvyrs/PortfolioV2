@@ -32,7 +32,7 @@ export default function ProjectsPage() {
                   <Link
                     key={project.slug}
                     href={`/projects/${project.slug}`}
-                    className="block p-6 rounded-lg border border-border bg-transparent hover:border-terracotta transition-all group"
+                    className="block p-6 rounded-xl border border-border/40 bg-terracotta/5 hover:bg-white hover:border-terracotta/50 transition-all duration-300 group"
                   >
                     <div className="flex justify-between items-start mb-2">
                       <h3 className="text-[17px] font-bold text-black group-hover:text-terracotta transition-colors">

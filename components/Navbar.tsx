@@ -8,7 +8,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-cream border-b border-border">
+    <header className="sticky top-0 z-50 bg-cream/80 backdrop-blur-md border-b border-border/50">
       <div className="max-w-[720px] mx-auto px-6 py-4 flex items-center justify-between">
         <Link href="/" className="text-base font-bold tracking-tight hover:text-terracotta">
           vidhan

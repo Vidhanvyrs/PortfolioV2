@@ -17,7 +17,7 @@ export default function FeaturedProjects() {
           <Link
             key={index}
             href={`/projects/${project.slug}`}
-            className="block border border-border rounded-lg p-6 sm:p-8 bg-transparent hover:shadow-sm hover:border-terracotta transition-all group"
+            className="block border border-border/40 rounded-xl p-6 sm:p-8 bg-terracotta/5 hover:bg-white hover:shadow-xl hover:shadow-terracotta/5 hover:border-terracotta/50 transition-all duration-300 group"
           >
             <h3 className="text-[17px] font-bold mb-2 text-black group-hover:text-terracotta transition-colors">{project.title}</h3>
             <p className="text-[14.5px] text-[#555] leading-relaxed mb-4">{project.description}</p>

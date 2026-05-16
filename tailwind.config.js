@@ -9,18 +9,22 @@ module.exports = {
     extend: {
       colors: {
         cream: {
-          DEFAULT: "#f8f1e4ff",
-          card: "#f8f1e4ff",
+          DEFAULT: "#F0F0F0",
+          card: "#D9E9CF",
         },
         terracotta: {
-          DEFAULT: "#8b4513",
-          hover: "#6d3410",
-          light: "#a0522d",
+          DEFAULT: "#96A78D",
+          hover: "#7F8E77",
+          light: "#B6CEB4",
         },
         border: {
-          DEFAULT: "#e0dbd4",
-          light: "#ebe7e0",
+          DEFAULT: "#B6CEB4",
+          light: "#D9E9CF",
         },
+        accent: {
+          DEFAULT: "#B6CEB4",
+          green: "#D9E9CF",
+        }
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

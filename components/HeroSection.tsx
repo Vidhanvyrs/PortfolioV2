@@ -115,7 +115,7 @@ export default function HeroSection() {
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-6 py-3 border border-border text-[14px] font-medium rounded-md text-[#555] hover:border-terracotta hover:text-black transition-all active:scale-95"
         >
-          Download CV ↗
+          Download CV
         </a>
       </div>
     </section>

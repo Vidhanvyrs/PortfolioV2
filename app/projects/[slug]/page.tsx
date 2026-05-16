@@ -38,7 +38,7 @@ export default function ProjectDetailPage({ params }: PageProps) {
         {project.tags.map((tag) => (
           <span
             key={tag}
-            className="text-[12px] font-medium px-2 py-1 rounded bg-orange-100 text-[#666]"
+            className="text-[12px] font-medium px-2 py-1 bg-terracotta rounded text-white"
           >
             {tag}
           </span>

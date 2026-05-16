@@ -4,25 +4,23 @@
 
 @layer base {
   body {
-    @apply bg-cream text-[#1a1a1a] leading-relaxed antialiased;
+    @apply bg-cream text-[#333333] leading-relaxed antialiased;
   }
 }
 
 @layer utilities {
   .blink-cursor {
-    border-right: 2px solid #1a1a1a;
+    @apply border-r-2 border-terracotta;
     animation: blink 0.8s step-end infinite;
   }
 }
 
 @keyframes blink {
-
   from,
   to {
     border-color: transparent;
   }
-
   50% {
-    border-color: #1a1a1a;
+    @apply border-terracotta;
   }
 }

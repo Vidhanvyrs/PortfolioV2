@@ -103,7 +103,7 @@ export default function HeroSection() {
       </p>
 
       <div className="text-base sm:text-[17px] text-[#555] leading-[1.8] max-w-[560px] mb-8">
-        <img src="/aboutimgs/eyesimg.png" alt="Eyes" className="w-full rounded h-auto" />
+        <img src="/aboutimgs/comp.jpg" alt="Eyes" className="w-full rounded-lg h-auto" />
       </div>
 
 

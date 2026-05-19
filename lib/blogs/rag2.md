@@ -5,14 +5,13 @@ date: "2026-05-19"
 tags: ["RAG", "LLM", "Production", "System"]
 ---
 
-### ==**RAG** **BASICS**==
+### **RAG** **BASICS**
 A Rag system has two pipelines - Ingestion(indexing) and Retrieval(querying)
 In Ingestion pipeline we ingest raw documents, split them, chunk them, create dense vector embedding's of them and then store them in a vector DB (runs offline)
 In Retrieval pipeline we take the user question embed it, perform a similarity search of it on the document vectors, retrieve the nearest chunks and provide it as a context to the LLM with the question prompt (runs online)
 Math Underlying it - cosine similarity = dot product of vectors / dot product of magnitude
-$similarity(q,d)=∥q∥⋅∥d∥q⋅d​$
 
-### ==**CHUNKING**==
+### **CHUNKING**
 chunks should be small enough to retrieve specific and relevant texts but large to contain complete thoughts 
 Naive approach is
 - Fixed Size Chunking at some character or token count say 512 tokens with a 128-token overlap
@@ -22,9 +21,9 @@ Production approaches are
 - Structure aware Splitting for eg. code aware splitting, splitting the code based on function classes using AST parsing, For legal docs split at clause boundaries etc etc
 Always store metadata with the chunks it is really important
 
-### ==**Embedding Models and the Model Lock Problem**==
+### **Embedding Models and the Model Lock Problem**
 The choice of your embedding model during indexing is always a long commitment switching models, every vector are now in commensurable with the new query embeddings hence must re embed the whole corpus
-### ==**RAG Indexing Pipelines**==
+### **RAG Indexing Pipelines**
 your knowledge base is not static, documents are updated, retracted, superseded, deleted hence our indexing pipeline should handle this operations correctly else our RAG application will go stale
 #### Chunk Identity
 A document update requires this following steps to be followed instead of simply updating a row as you would in a rdb
@@ -137,7 +136,7 @@ this means that embedding model upgrades require full corpus re-rembedding, the 
 
 This is why embedding model choice is really important treat it like database schema migration painful to undo so choose carefully
 
-### ==Observability and Retrieval Tracing==
+### Observability and Retrieval Tracing
 RAG system fails mostly because of retrieval problems not because the LLM hallucinated and we really need to have a way to distinguish between them 
 ##### The Span Architecture
 A complete RAG request should produce a trace with these spans, nested in a single root span:

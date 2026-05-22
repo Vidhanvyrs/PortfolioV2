@@ -90,6 +90,27 @@ export const projectsData: Project[] = [
     ],
   },
   {
+    slug: "remotion-mcp",
+    title: "remotion-mcp — AI-Powered Video Creation via MCP",
+    description:
+      "An MCP server that gives AI assistants the ability to create, edit, and render Remotion videos through natural conversation — no UI needed.",
+    fullDescription:
+      "remotion-mcp bridges the Model Context Protocol and the Remotion video framework, enabling AI assistants like Claude, Cursor, and Windsurf to scaffold, edit, and render React-based video compositions through conversation. It features 12 tools covering the full video production lifecycle — from project scaffolding and component generation to async video rendering with live progress polling. The server is grounded in the official Remotion documentation via a proxy tool, ensuring the AI generates accurate API calls instead of relying on stale training data. Published to npm for zero-install usage via npx.",
+    category: "Personal Projects",
+    tags: ["TypeScript", "Node.js", "Remotion", "MCP", "React", "Zod", "Express", "Docker"],
+    links: [
+      { label: "npm", href: "https://www.npmjs.com/package/remotion-mcp" },
+      { label: "GitHub", href: "https://github.com/Vidhanvyrs/remotion-mcp" },
+    ],
+    highlights: [
+      "Designed and published a 12-tool MCP server enabling AI assistants to render MP4s, stills, and GIFs from natural language prompts — zero manual UI interaction required.",
+      "Implemented async render job architecture with UUID-based job IDs and onProgress polling, eliminating MCP request timeouts on long video renders.",
+      "Built an auto-discovery loader that dynamically scans the tools/ directory at startup — contributors add a new tool file and it registers itself with no changes to index.ts.",
+      "Proxied the official @remotion/mcp documentation server as a passthrough tool, grounding the AI in live Remotion API signatures before code generation.",
+      "Shipped Docker-ready deployment with Chrome pre-installed, CHROME_EXECUTABLE env var support, a /health endpoint, and a complete Railway/Fly.io deployment guide.",
+    ],
+  },
+  {
     slug: "chatpdf",
     title: "RAG Agent — ChatPDF",
     description: "A custom retrieval-augmented generation agent built with FastAPI, Inngest, Qdrant, Huggingface. Chat with any PDF.",
@@ -232,7 +253,7 @@ export const projectsData: Project[] = [
 
 // Re-map for featured projects on home page
 export const featuredProjects = projectsData.filter(p =>
-  ["commentme", "tensai", "homingdotcom"].includes(p.slug)
+  ["remotion-mcp", "commentme", "tensai"].includes(p.slug)
 );
 
 // --- Experience ---

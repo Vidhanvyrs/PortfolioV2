@@ -116,7 +116,7 @@ export default function HeroSection() {
           {heroData.ctaText}
         </Link>
         <a
-          href="https://drive.google.com/file/d/1xcXpyx0DQZWMMKEe8LSHJgJBpGupdv44/view?usp=sharing"
+          href="https://drive.google.com/file/d/1KUTqcIv6K1erI2oGYDHA3K-hqSVKBOpv/view?usp=sharing"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-6 py-3 border border-border text-[14px] font-medium rounded-md text-[#555] hover:border-terracotta hover:text-black transition-all active:scale-95"

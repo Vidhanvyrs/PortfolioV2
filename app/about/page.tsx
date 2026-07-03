@@ -91,20 +91,28 @@ export default function AboutPage() {
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map((num) => (
-            <div
-              key={num}
-              className="aspect-square rounded-lg overflow-hidden border border-border bg-white group relative"
-            >
-              <Image
-                src={`/aboutimgs/img${num}.${num === 14 ? "png" : "jpg"}`}
-                alt={`Photo ${num}`}
-                fill
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300" />
-            </div>
-          ))}
+          {Array.from({ length: 39 }, (_, i) => i + 1).map((num) => {
+            const ext =
+              num >= 15
+                ? "jpeg"
+                : num === 14
+                  ? "png"
+                  : "jpg";
+            return (
+              <div
+                key={num}
+                className="aspect-square rounded-lg overflow-hidden border border-border bg-white group relative"
+              >
+                <Image
+                  src={`/aboutimgs/img${num}.${ext}`}
+                  alt={`Photo ${num}`}
+                  fill
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300" />
+              </div>
+            );
+          })}
         </div>
         {/* <p className="text-[12px] text-[#aaa] text-center mt-3">
           Add your photos here — replace the placeholders above with images from

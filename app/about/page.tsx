@@ -11,33 +11,26 @@ export default function AboutPage() {
 
         <div className="space-y-5 text-[15px] text-[#555] leading-[1.8]">
           <p>
-            I&apos;m a software engineer who loves building things that solve
-            real problems. I graduated in 2025 with a B.Tech in CSE (AI) and
-            have since worked across full-stack web development, AI platforms,
-            and various tech startups.
+            I&apos;m a software engineer who genuinely enjoys building products that solve actual problems.
+            After graduating in 2025 with a B.Tech in Computer Science and AI, I&apos;ve had the chance to work across
+            full-stack web development, AI platforms, and a handful of exciting tech startups.
           </p>
 
           <p>
-            Currently, I&apos;m a Specialist Engineer at Infosys, owning the
-            Flask backend for tensAI — an enterprise-grade agentic RAG platform
-            on SAP BTP. I designed a hybrid retrieval pipeline (BM25 + dense
-            vectors + reranker), built multi-format document parsers for
-            PDF/PPTX/DOCX/Excel ingestion, and developed a RAGAS-based
-            evaluation framework.
-            Before Infosys, I was a Full Stack Developer at Acencore
-            Technologies, building their AI-assisted hiring platform and
-            shipping a V-0 AI-driven video interview flow.
-            During my college years, I worked with various startups and also took on freelance gigs alongside my work in tech.
+            Right now, I work as a Specialist Engineer at Infosys. I&apos;m responsible for the Flask backend powering tensAI,
+            which is a large-scale agentic RAG platform built on SAP BTP. Some of my favorite work there includes designing a
+            hybrid retrieval pipeline combining BM25, dense vectors, and a reranker, as well as building custom document parsers
+            to handle multiple file formats. Prior to Infosys, I was a Full Stack Developer at Acencore Technologies where I helped build
+            their AI-assisted hiring platform and launched their first AI-driven video interview experience. Even during college,
+            I loved keeping busy by collaborating with startups and taking on freelance projects.
           </p>
 
           <p>
-            Computers have been a part of my life for as long as I can remember.
-            From tinkering with HTML pages as a kid to building full-stack
-            applications and AI-powered tools today, I&apos;ve always been driven
-            by curiosity. I don&apos;t just build for resumes — I genuinely love
-            exploring new technologies, whether it&apos;s RAG pipelines, agentic
-            workflows, or a random npm package that caught my eye. That hands-on
-            curiosity is what drew me to engineering and keeps me building today.
+            Computers have fascinated me for as long as I can remember. From playing around with basic HTML pages as a kid to
+            engineering full-stack applications and complex AI tools today, my journey has always been fueled by pure curiosity.
+            I don&apos;t just write code for the sake of a resume, but because I love getting my hands dirty with new technologies.
+            Whether I&apos;m exploring RAG pipelines, diving into agentic workflows, or just testing out a random npm package that caught my eye,
+            that same childhood curiosity is exactly what keeps me building every day.
           </p>
         </div>
       </section>
@@ -91,7 +84,9 @@ export default function AboutPage() {
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-          {Array.from({ length: 39 }, (_, i) => i + 1).map((num) => {
+          {Array.from({ length: 39 }, (_, i) => i + 1)
+            .filter((num) => num !== 7)
+            .map((num) => {
             const ext =
               num >= 15
                 ? "jpeg"

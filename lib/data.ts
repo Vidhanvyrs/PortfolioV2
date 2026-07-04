@@ -90,6 +90,28 @@ export const projectsData: Project[] = [
     ],
   },
   {
+    slug: "pushup-pro",
+    title: "PushUp Pro — AI Fitness Platform",
+    description:
+      "Full-stack AI fitness platform featuring real-time pose detection and personalized AI workout coaching.",
+    fullDescription:
+      "PushUp Pro is a comprehensive AI-powered fitness application built to provide real-time coaching. It utilizes computer vision for real-time pose detection (pushups, squats, planks) and includes 'MoveMatch', a feature to mimic dance moves from reference videos. The platform is built with a Vue 3 frontend and a FastAPI backend, deployed securely and scalably on AWS ECS.",
+    category: "Professional Work",
+    tags: ["Vue 3", "FastAPI", "Python", "AWS ECS", "Computer Vision", "AI", "Pinia"],
+    links: [
+      { label: "Live Site", href: "https://pushuppro.vercel.app/" },
+      { label: "Download for App Store", href: "https://apps.apple.com/in/app/pushup-pro-ai-workout/id6761613723" },
+      { label: "Download for Play Store", href: "https://play.google.com/store/apps/details?id=ai.neymo.pushup" }
+    ],
+    highlights: [
+      "Implemented real-time pose detection (pushups, squats, planks) for instant workout feedback.",
+      "Developed MoveMatch, enabling users to mimic and learn dance moves from reference videos.",
+      "Engineered a scalable FastAPI backend to efficiently process high-frequency real-time pose frames.",
+      "Architected the frontend with Vue 3, Pinia for state management, and Capacitor for cross-platform delivery.",
+      "Deployed the complete application stack to AWS ECS ensuring reliable performance and scalability.",
+    ],
+  },
+  {
     slug: "remotion-mcp",
     title: "remotion-mcp — AI-Powered Video Creation via MCP",
     description:
@@ -253,7 +275,7 @@ export const projectsData: Project[] = [
 
 // Re-map for featured projects on home page
 export const featuredProjects = projectsData.filter(p =>
-  ["remotion-mcp", "commentme", "tensai"].includes(p.slug)
+  ["remotion-mcp", "commentme", "tensai", "pushup-pro"].includes(p.slug)
 );
 
 // --- Experience ---
@@ -354,7 +376,11 @@ export const techStack = [
   { emoji: "⚛️", label: "React.js" },
   { emoji: "▲", label: "Next.js" },
   { emoji: "🐍", label: "Python" },
-  // { emoji: "🔥", label: "FastAPI" },
+  { emoji: "🔥", label: "FastAPI" },
+  { emoji: "⚡", label: "Vue 3" },
+  { emoji: "🍍", label: "Pinia" },
+  { emoji: "☁️", label: "AWS ECS" },
+  { emoji: "👁️", label: "Computer Vision" },
   { emoji: "🧪", label: "Flask" },
   { emoji: "🦜", label: "Langchain" },
   { emoji: "🧠", label: "RAG" },
@@ -397,14 +423,14 @@ export const socialLinks = [
 export const currentlyData = [
   {
     label: "Building",
-    value: "An Enterprise Level Agentic RAG Platform and my shitty portfolio lol",
+    value: "An Enterprise Level Agentic RAG Platform, actively contributing to PushUp Pro, and improving my X account by posting every day",
   },
   {
     label: "Listening to",
-    value: "Tame Impala and Ye also rumours on How AI is going to replace me 💀",
+    value: "Tame Impala, Ye, Fred again.., Radiohead, and rumours on How AI is going to replace me 💀",
   },
   {
     label: "Reading",
-    value: "Multiple md files meant for agents and silly X post",
+    value: "Principles of Building AI agents, multiple md files meant for agents, and silly X posts",
   },
 ] as const;

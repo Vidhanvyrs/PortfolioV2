@@ -2,10 +2,147 @@
 @tailwind components;
 @tailwind utilities;
 
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 9999;
+}
+
+:root {
+  --cream: 240 240 240;
+  --cream-card: 217 233 207;
+  --terracotta: 150 167 141;
+  --terracotta-hover: 127 142 119;
+  --terracotta-light: 182 206 180;
+  --border: 182 206 180;
+  --border-light: 217 233 207;
+  --accent: 182 206 180;
+  --accent-green: 217 233 207;
+}
+
+.dark {
+  color-scheme: dark;
+  --cream: 15 20 17;
+  --cream-card: 27 40 32;
+  --terracotta: 132 166 139;
+  --terracotta-hover: 166 199 172;
+  --terracotta-light: 75 101 81;
+  --border: 59 79 65;
+  --border-light: 35 49 40;
+  --accent: 89 119 95;
+  --accent-green: 29 45 35;
+}
+
 @layer base {
   body {
     @apply bg-cream text-[#333333] leading-relaxed antialiased;
+    transition: background-color 200ms ease, color 200ms ease;
   }
+}
+
+.dark body {
+  background-color: rgb(var(--cream));
+  color: #d7dfda;
+}
+
+.dark .bg-cream {
+  background-color: rgb(var(--cream));
+}
+
+.dark .bg-cream\/80 {
+  background-color: rgb(var(--cream) / 0.8);
+}
+
+.dark .bg-cream-card {
+  background-color: rgb(var(--cream-card));
+}
+
+.dark .border-border,
+.dark .border-border\/40,
+.dark .border-border\/50,
+.dark .border-border\/60,
+.dark .border-border\/70 {
+  border-color: rgb(var(--border));
+}
+
+.dark .bg-terracotta {
+  background-color: rgb(var(--terracotta));
+}
+
+.dark .bg-terracotta\/5 {
+  background-color: rgb(var(--terracotta) / 0.08);
+}
+
+.dark .text-terracotta,
+.dark .text-terracotta-hover {
+  color: rgb(var(--terracotta-hover));
+}
+
+.dark .text-black {
+  color: #f3f6f4;
+}
+
+.dark .bg-black {
+  background-color: #f3f6f4;
+}
+
+.dark .text-\[\#333333\],
+.dark .text-\[\#444\],
+.dark .text-\[\#555\],
+.dark .text-\[\#666\] {
+  color: #c2ccc6;
+}
+
+.dark .text-\[\#777\],
+.dark .text-\[\#888\] {
+  color: #9eaca3;
+}
+
+.dark .bg-white,
+.dark .bg-white\/45,
+.dark .bg-white\/50,
+.dark .bg-gray-50 {
+  background-color: rgb(25 33 28 / 0.92);
+}
+
+.dark input,
+.dark textarea {
+  background-color: rgb(20 27 23);
+  color: #eef2ef;
+}
+
+.dark .hover\:bg-white:hover {
+  background-color: rgb(25 33 28);
+}
+
+.dark .hover\:text-black:hover {
+  color: #f3f6f4;
+}
+
+.dark .blog-content,
+.dark .blog-content p,
+.dark .blog-content li {
+  color: #c2ccc6;
+}
+
+.dark .blog-content h1,
+.dark .blog-content h2,
+.dark .blog-content h3,
+.dark .blog-content pre {
+  color: #f3f6f4;
+}
+
+.dark .blog-content pre,
+.dark .blog-content blockquote {
+  background-color: rgb(var(--terracotta) / 0.08);
 }
 
 @layer utilities {
@@ -22,6 +159,36 @@
   }
   50% {
     @apply border-terracotta;
+  }
+}
+
+.role-pop {
+  animation: role-pop 350ms ease-out;
+}
+
+.tech-chip:hover .tech-icon,
+.tech-chip:focus-visible .tech-icon {
+  color: var(--tech-color);
+}
+
+@keyframes role-pop {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .role-pop {
+    animation: none;
+  }
+
+  body {
+    transition: none;
   }
 }
 

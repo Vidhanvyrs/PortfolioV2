@@ -56,7 +56,7 @@ export interface Project {
 export const projectsData: Project[] = [
   {
     slug: "tensai",
-    title: "tensAI — Enterprise Agentic RAG Platform",
+    title: "tensAI: Enterprise Agentic RAG Platform",
     description: "Digital Specialist Engineer at Infosys, building an enterprise-grade agentic RAG platform on SAP BTP.",
     fullDescription: "tensAI is a sophisticated agentic RAG platform designed for enterprise scale. Built on SAP BTP, it enables seamless document ingestion, intelligent retrieval, and automated evaluation of AI responses. My work focused on architecting the core backend services, optimizing retrieval accuracy, and establishing robust evaluation frameworks to ensure high-fidelity grounded responses.",
     category: "Professional Work",
@@ -71,7 +71,7 @@ export const projectsData: Project[] = [
   },
   {
     slug: "commentme",
-    title: "Commentme — Manage & Automate Cluttered Codebase",
+    title: "Commentme: Manage & Automate Cluttered Codebase",
     description:
       "AI-based Codebase Comments and Notes Manager with a Cloud Vault synced with the CLI package tool.",
     fullDescription:
@@ -91,7 +91,7 @@ export const projectsData: Project[] = [
   },
   {
     slug: "pushup-pro",
-    title: "PushUp Pro — AI Fitness Platform",
+    title: "PushUp Pro: AI Fitness Platform",
     description:
       "Full-stack AI fitness platform featuring real-time pose detection and personalized AI workout coaching.",
     fullDescription:
@@ -113,7 +113,7 @@ export const projectsData: Project[] = [
   },
   {
     slug: "remotion-mcp",
-    title: "remotion-mcp — AI-Powered Video Creation via MCP",
+    title: "remotion-mcp: AI-Powered Video Creation via MCP",
     description:
       "An MCP server that gives AI assistants the ability to create, edit, and render Remotion videos through natural conversation — no UI needed.",
     fullDescription:
@@ -134,7 +134,7 @@ export const projectsData: Project[] = [
   },
   {
     slug: "chatpdf",
-    title: "RAG Agent — ChatPDF",
+    title: "RAG Agent: ChatPDF",
     description: "A custom retrieval-augmented generation agent built with FastAPI, Inngest, Qdrant, Huggingface. Chat with any PDF.",
     fullDescription: "A RAG based AI assistant that allows you to upload PDFs and ask questions based on their content. It uses Qdrant as vector database and Inngest for observability features utilizing free models via Groq API",
     category: "Personal Projects",
@@ -148,7 +148,7 @@ export const projectsData: Project[] = [
   },
   {
     slug: "homingdotcom",
-    title: "Homingdotcom — Real Estate Platform",
+    title: "Homingdotcom: Real Estate Platform",
     description: "Platform for listing and discovering properties based on city, surroundings, and budget.",
     fullDescription: "A feature-rich real estate marketplace focused on local community insights and budget-based discovery. It provides users with deep surrounding data (schools, hospitals, parks) to help them make informed living decisions.",
     category: "Personal Projects",
@@ -165,7 +165,7 @@ export const projectsData: Project[] = [
   },
   {
     slug: "dimple",
-    title: "Dimple — Social Media Web App",
+    title: "Dimple: Social Media Web App",
     description: "A full-stack social media application with real-time features and music integration.",
     fullDescription: "Dimple is a comprehensive social media platform designed for seamless user interaction. It implements core social features like authentication, profile management, and content sharing, while also integrating a unique music discovery experience through third-party APIs.",
     category: "Personal Projects",
@@ -178,7 +178,7 @@ export const projectsData: Project[] = [
   },
   {
     slug: "acencore",
-    title: "Acencore — AI Assisted Hiring Platform",
+    title: "Acencore: AI Assisted Hiring Platform",
     description: "Revolutionizing recruitment with OrionAI. Automating manual tasks from sourcing to onboarding.",
     fullDescription: "Acencore is a comprehensive enterprise recruitment platform that leverages AI to streamline the entire hiring lifecycle. From automated candidate sourcing to AI-driven video interviews, it reduces time-to-hire by 40% and eliminates repetitive manual screening tasks.",
     category: "Professional Work",
@@ -192,7 +192,7 @@ export const projectsData: Project[] = [
   },
   {
     slug: "physioplus",
-    title: "Physioplus — Healthcare Platform",
+    title: "Physioplus: Healthcare Platform",
     description: "Platform for expert physiotherapy at home or in-clinic with personalized recovery care.",
     fullDescription: "A healthcare service platform connecting patients with specialized physiotherapists. It handles everything from booking sessions to tracking recovery progress through a dedicated patient-doctor portal.",
     category: "Professional Work",

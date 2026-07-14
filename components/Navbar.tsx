@@ -120,7 +120,7 @@ export default function Navbar() {
         </button>
 
         {/* Links */}
-        <nav className={`${menuOpen ? 'flex' : 'hidden'} order-2 sm:flex absolute sm:relative top-full sm:top-auto left-0 right-0 sm:left-auto bg-cream sm:bg-transparent border-b sm:border-none border-border flex-col sm:flex-row items-center gap-6 sm:gap-7 p-6 sm:p-0 sm:ml-auto`}>
+        <nav className={`${menuOpen ? 'flex' : 'hidden'} order-2 sm:flex absolute sm:relative top-full sm:top-auto left-0 right-0 sm:left-auto bg-cream sm:!bg-transparent border-b sm:border-none border-border flex-col sm:flex-row items-center gap-6 sm:gap-7 p-6 sm:p-0 sm:ml-auto`}>
           <ul className="flex flex-col sm:flex-row items-center gap-6 sm:gap-7 list-none">
             {navLinks.map((link) => (
               <li key={link.name}>

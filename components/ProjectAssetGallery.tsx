@@ -5,6 +5,10 @@ import Image from "next/image";
 import { FiImage } from "react-icons/fi";
 import type { ProjectAsset } from "@/lib/data";
 
+function isMotionAsset(asset: ProjectAsset) {
+  return asset.type === "video" || asset.src.toLowerCase().endsWith(".gif");
+}
+
 export default function ProjectAssetGallery({ assets }: { assets?: ProjectAsset[] }) {
   const [failedAssets, setFailedAssets] = useState<Set<number>>(() => new Set());
 
@@ -17,10 +21,13 @@ export default function ProjectAssetGallery({ assets }: { assets?: ProjectAsset[
   const orderedAssets = assets
     .map((asset, sourceIndex) => ({ asset, sourceIndex }))
     .sort((first, second) => {
-      if (first.asset.type === second.asset.type) return 0;
-      return first.asset.type === "video" ? -1 : 1;
+      const firstIsMotion = isMotionAsset(first.asset);
+      const secondIsMotion = isMotionAsset(second.asset);
+
+      if (firstIsMotion === secondIsMotion) return 0;
+      return firstIsMotion ? -1 : 1;
     });
-  const hasVideos = assets.some((asset) => asset.type === "video");
+  const hasMotionAssets = assets.some(isMotionAsset);
 
   return (
     <section className="mb-12 border-t border-border pt-12" aria-labelledby="project-gallery-title">
@@ -36,7 +43,7 @@ export default function ProjectAssetGallery({ assets }: { assets?: ProjectAsset[
       <div className="grid gap-4 sm:grid-cols-2">
         {orderedAssets.map(({ asset, sourceIndex }, displayIndex) => {
           const spansFullWidth =
-            asset.type === "video" || (!hasVideos && displayIndex === 0);
+            isMotionAsset(asset) || (!hasMotionAssets && displayIndex === 0);
 
           return (
             <figure

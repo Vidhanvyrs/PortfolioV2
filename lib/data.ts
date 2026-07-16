@@ -42,12 +42,28 @@ export const heroData = {
 // --- Projects ---
 export type ProjectCategory = "Personal Projects" | "Professional Work" | "Open Source Contributions";
 
+export type ProjectAsset =
+  | {
+      type: "image";
+      src: string;
+      alt: string;
+      focalPoint?: `${number}% ${number}%`;
+    }
+  | {
+      type: "video";
+      src: string;
+      alt: string;
+      poster?: string;
+      focalPoint?: `${number}% ${number}%`;
+    };
+
 export interface Project {
   slug: string;
   title: string;
   description: string;
   fullDescription: string;
   category: ProjectCategory;
+  assets?: ProjectAsset[];
   tags: string[];
   links: { label: string; href: string }[];
   highlights: string[];
@@ -152,6 +168,20 @@ export const projectsData: Project[] = [
     description: "Platform for listing and discovering properties based on city, surroundings, and budget.",
     fullDescription: "A feature-rich real estate marketplace focused on local community insights and budget-based discovery. It provides users with deep surrounding data (schools, hospitals, parks) to help them make informed living decisions.",
     category: "Personal Projects",
+    assets: [
+      {
+        type: "image",
+        src: "/homing.png",
+        alt: "Homing.com real estate discovery landing page",
+        focalPoint: "50% 0%",
+      },
+      {
+        type: "image",
+        src: "/homingdotcom.gif",
+        alt: "Animated walkthrough of the Homing.com property experience",
+        focalPoint: "50% 0%",
+      },
+    ],
     tags: ["React", "Express", "MongoDB", "Prisma", "Node.js"],
     links: [
       { label: "GitHub", href: "https://github.com/Vidhanvyrs/Homingdotcom" },
@@ -169,6 +199,14 @@ export const projectsData: Project[] = [
     description: "A full-stack social media application with real-time features and music integration.",
     fullDescription: "Dimple is a comprehensive social media platform designed for seamless user interaction. It implements core social features like authentication, profile management, and content sharing, while also integrating a unique music discovery experience through third-party APIs.",
     category: "Personal Projects",
+    assets: [
+      {
+        type: "image",
+        src: "/dimplegram.png",
+        alt: "Dimple social and music application interface collage",
+        focalPoint: "50% 0%",
+      },
+    ],
     tags: ["React", "TanStack Query", "Tailwind CSS", "Appwrite"],
     links: [{ label: "Github", href: "https://github.com/Vidhanvyrs/Dimplegram" }, { label: "Live", href: "https://dimplegram.vercel.app/" }],
     highlights: [
@@ -182,6 +220,14 @@ export const projectsData: Project[] = [
     description: "Revolutionizing recruitment with OrionAI. Automating manual tasks from sourcing to onboarding.",
     fullDescription: "Acencore is a comprehensive enterprise recruitment platform that leverages AI to streamline the entire hiring lifecycle. From automated candidate sourcing to AI-driven video interviews, it reduces time-to-hire by 40% and eliminates repetitive manual screening tasks.",
     category: "Professional Work",
+    assets: [
+      {
+        type: "image",
+        src: "/Acencore.png",
+        alt: "Acencore AI hiring platform landing page",
+        focalPoint: "50% 0%",
+      },
+    ],
     tags: ["Next.js", "Node.js", "Zegocloud", "Tailwind", "Redux", "GCP", "speech-to-text"],
     links: [{ label: "Live Site", href: "https://acencore-ui.vercel.app/" }],
     highlights: [
@@ -196,6 +242,14 @@ export const projectsData: Project[] = [
     description: "Platform for expert physiotherapy at home or in-clinic with personalized recovery care.",
     fullDescription: "A healthcare service platform connecting patients with specialized physiotherapists. It handles everything from booking sessions to tracking recovery progress through a dedicated patient-doctor portal.",
     category: "Professional Work",
+    assets: [
+      {
+        type: "image",
+        src: "/physioplus.png",
+        alt: "Physioplus healthcare booking platform landing page",
+        focalPoint: "50% 0%",
+      },
+    ],
     tags: ["React", "Express", "MongoDB", "Tailwind", "Node.js", "Firebase"],
     links: [{ label: "Live Site", href: "https://physioplushealthcare.com/" }],
     highlights: [
@@ -210,6 +264,14 @@ export const projectsData: Project[] = [
     description: "Transforming Private Equity with a transparent and accessible investment ecosystem.",
     fullDescription: "Stakehub is a Private Equity investment platform built to simplify the complex world of market investing. It provides a transparent and reliable ecosystem where investors can explore credible opportunities with confidence. During my tenure, I led a major architectural migration of the codebase from Tailwind CSS to SCSS for enhanced style modularity, developed key featured components, and performed rigorous QA testing to maintain high-quality frontend standards.",
     category: "Professional Work",
+    assets: [
+      {
+        type: "image",
+        src: "/stakehub.png",
+        alt: "Stakehub private equity investment platform landing page",
+        focalPoint: "50% 0%",
+      },
+    ],
     tags: ["Next.js", "React.js", "SCSS", "Tailwind CSS", "CSS3"],
     links: [{ label: "View Product", href: "https://www.stakehub.in/" }],
     highlights: [

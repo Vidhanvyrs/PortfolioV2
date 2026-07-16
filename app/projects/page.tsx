@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "next/link";
+import ProjectFolderCard from "@/components/ProjectFolderCard";
 import { projectsData, ProjectCategory } from "@/lib/data";
 
 export default function ProjectsPage() {
@@ -29,42 +29,7 @@ export default function ProjectsPage() {
 
               <div className="space-y-6">
                 {projects.map((project) => (
-                  <Link
-                    key={project.slug}
-                    href={`/projects/${project.slug}`}
-                    className="block p-6 rounded-xl border border-border/40 bg-terracotta/5 hover:bg-white hover:border-terracotta/50 transition-all duration-300 group"
-                  >
-                    <div className="flex justify-between items-start mb-2">
-                      <h3 className="text-[17px] font-bold text-black group-hover:text-terracotta transition-colors">
-                        {project.title}
-                      </h3>
-                    </div>
-                    <p className="text-[14px] text-[#555] leading-relaxed mb-4">
-                      {project.description}
-                    </p>
-
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="text-[11px] font-medium px-2 py-0.5 rounded bg-cream border border-border text-[#666]"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-
-                    <div className="flex gap-4">
-                      {project.links.map((link) => (
-                        <span
-                          key={link.label}
-                          className="text-[13px] text-terracotta font-medium hover:underline"
-                        >
-                          {link.label}
-                        </span>
-                      ))}
-                    </div>
-                  </Link>
+                  <ProjectFolderCard key={project.slug} project={project} />
                 ))}
               </div>
             </section>

@@ -1,15 +1,34 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import { flushSync } from "react-dom";
-import { FiMoon, FiSun } from "react-icons/fi";
+import {
+  FiBookOpen,
+  FiBriefcase,
+  FiFolder,
+  FiHome,
+  FiMail,
+  FiMoon,
+  FiSun,
+  FiUser,
+} from "react-icons/fi";
+import { usePathname } from "next/navigation";
 import { navLinks } from "@/lib/data";
 import { useTheme } from "@/context/theme-context";
 
 type DocumentWithViewTransition = Document & {
   startViewTransition?: (update: () => void) => { ready: Promise<void> };
 };
+
+const mobileNavLinks = [
+  { name: "Home", href: "/", icon: FiHome },
+  { name: "About", href: "/about", icon: FiUser },
+  { name: "Experience", href: "/experience", icon: FiBriefcase },
+  { name: "Projects", href: "/projects", icon: FiFolder },
+  { name: "Writings", href: "/writings", icon: FiBookOpen },
+  { name: "Contact", href: "/contact", icon: FiMail },
+] as const;
 
 async function playThemeSound(theme: "light" | "dark") {
   try {
@@ -46,8 +65,8 @@ async function playThemeSound(theme: "light" | "dark") {
 }
 
 export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const pathname = usePathname();
 
   const handleThemeToggle = async (event: React.MouseEvent<HTMLButtonElement>) => {
     void playThemeSound(theme);
@@ -92,7 +111,8 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-cream/80 backdrop-blur-md border-b border-border/50">
+    <>
+    <header className="sticky top-0 z-50 hidden border-b border-border/50 bg-cream/80 backdrop-blur-md sm:block">
       <div className="max-w-[720px] mx-auto px-6 py-4 flex items-center justify-between">
         <Link href="/" className="text-base font-bold tracking-tight hover:text-terracotta">
           vidhan
@@ -101,33 +121,21 @@ export default function Navbar() {
         <button
           type="button"
           onClick={handleThemeToggle}
-          className="order-3 ml-auto mr-2 grid h-9 w-9 place-items-center text-[#555] sm:ml-3 sm:mr-0"
+          className="order-3 ml-3 grid h-9 w-9 place-items-center text-[#555]"
           aria-label={`Switch to ${theme === "light" ? "dark" : "light"} theme`}
           title={`Switch to ${theme === "light" ? "dark" : "light"} theme`}
         >
           {theme === "light" ? <FiMoon aria-hidden="true" /> : <FiSun aria-hidden="true" />}
         </button>
 
-        {/* Mobile toggle */}
-        <button
-          className="order-4 flex flex-col gap-1.5 p-1 sm:hidden"
-          onClick={() => setMenuOpen((prev) => !prev)}
-          aria-label="Toggle navigation"
-        >
-          <span className={`block w-5 h-0.5 bg-black transition-transform ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
-          <span className={`block w-5 h-0.5 bg-black transition-opacity ${menuOpen ? 'opacity-0' : ''}`} />
-          <span className={`block w-5 h-0.5 bg-black transition-transform ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
-        </button>
-
         {/* Links */}
-        <nav className={`${menuOpen ? 'flex' : 'hidden'} order-2 sm:flex absolute sm:relative top-full sm:top-auto left-0 right-0 sm:left-auto bg-cream sm:!bg-transparent border-b sm:border-none border-border flex-col sm:flex-row items-center gap-6 sm:gap-7 p-6 sm:p-0 sm:ml-auto`}>
+        <nav className="order-2 ml-auto flex items-center gap-7">
           <ul className="flex flex-col sm:flex-row items-center gap-6 sm:gap-7 list-none">
             {navLinks.map((link) => (
               <li key={link.name}>
                 <Link
                   href={link.href}
                   className="text-[14px] text-[#555] hover:text-black transition-colors font-normal relative group py-1"
-                  onClick={() => setMenuOpen(false)}
                 >
                   {link.name}
                   <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-terracotta group-hover:w-full transition-all duration-300 ease-out" />
@@ -138,5 +146,47 @@ export default function Navbar() {
         </nav>
       </div>
     </header>
+
+    <nav
+      className="fixed bottom-4 left-1/2 z-50 flex -translate-x-1/2 items-center rounded-[22px] border border-border bg-cream px-2 py-2 shadow-[0_12px_35px_rgba(0,0,0,0.18)] sm:hidden"
+      aria-label="Mobile navigation"
+    >
+      {mobileNavLinks.map((link) => {
+        const Icon = link.icon;
+        const isActive =
+          link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
+
+        return (
+          <Link
+            key={link.name}
+            href={link.href}
+            aria-label={link.name}
+            title={link.name}
+            aria-current={isActive ? "page" : undefined}
+            className={`relative grid h-10 w-10 place-items-center rounded-xl text-[19px] transition-colors ${
+              isActive ? "bg-terracotta/20 text-black" : "text-[#777]"
+            }`}
+          >
+            <Icon aria-hidden="true" />
+            {isActive && (
+              <span className="absolute bottom-1 h-1 w-1 rounded-full bg-terracotta-hover" />
+            )}
+          </Link>
+        );
+      })}
+
+      <span aria-hidden="true" className="mx-1 h-7 w-px bg-border" />
+
+      <button
+        type="button"
+        onClick={handleThemeToggle}
+        className="grid h-10 w-10 place-items-center rounded-xl text-[20px] text-[#777]"
+        aria-label={`Switch to ${theme === "light" ? "dark" : "light"} theme`}
+        title={`Switch to ${theme === "light" ? "dark" : "light"} theme`}
+      >
+        {theme === "light" ? <FiMoon aria-hidden="true" /> : <FiSun aria-hidden="true" />}
+      </button>
+    </nav>
+    </>
   );
 }

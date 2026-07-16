@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import AnimatedAboutText from "@/components/AnimatedAboutText";
 import type { IconType } from "react-icons";
 import {
   SiAmazonwebservices,
@@ -134,30 +135,7 @@ export default function AboutPage() {
       <section className="mb-16">
         <h1 className="text-[32px] font-bold mb-6">About Me</h1>
 
-        <div className="space-y-5 text-[15px] text-[#555] leading-[1.8]">
-          <p>
-            I&apos;m a software engineer who genuinely enjoys building products that solve actual problems.
-            After graduating in 2025 with a B.Tech in Computer Science and AI, I&apos;ve had the chance to work across
-            full-stack web development, AI platforms, and a handful of exciting tech startups.
-          </p>
-
-          <p>
-            Right now, I work as a Specialist Engineer at Infosys. I&apos;m responsible for the Flask backend powering tensAI,
-            which is a large-scale agentic RAG platform built on SAP BTP. Some of my favorite work there includes designing a
-            hybrid retrieval pipeline combining BM25, dense vectors, and a reranker, as well as building custom document parsers
-            to handle multiple file formats. Prior to Infosys, I was a Full Stack Developer at Acencore Technologies where I helped build
-            their AI-assisted hiring platform and launched their first AI-driven video interview experience. Even during college,
-            I loved keeping busy by collaborating with startups and taking on freelance projects.
-          </p>
-
-          <p>
-            Computers have fascinated me for as long as I can remember. From playing around with basic HTML pages as a kid to
-            engineering full-stack applications and complex AI tools today, my journey has always been fueled by pure curiosity.
-            I don&apos;t just write code for the sake of a resume, but because I love getting my hands dirty with new technologies.
-            Whether I&apos;m exploring RAG pipelines, diving into agentic workflows, or just testing out a random npm package that caught my eye,
-            that same childhood curiosity is exactly what keeps me building every day.
-          </p>
-        </div>
+        <AnimatedAboutText />
       </section>
 
       <hr className="w-full h-px bg-border border-none my-12" />

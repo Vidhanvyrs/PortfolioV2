@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import ProjectAssetGallery from "@/components/ProjectAssetGallery";
 import { projectsData } from "@/lib/data";
 import { notFound } from "next/navigation";
 
@@ -58,6 +59,8 @@ export default function ProjectDetailPage({ params }: PageProps) {
           </a>
         ))}
       </div>
+
+      <ProjectAssetGallery assets={project.assets} />
 
       <div className="border-t border-border pt-12">
         <h2 className="text-[15px] font-bold text-black mb-6">Technical highlights:</h2>

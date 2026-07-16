@@ -185,19 +185,20 @@ export default function HeroSection() {
 
       <div className="relative mb-8 rounded-xl border border-border/70 bg-white/45 p-4 shadow-sm sm:p-5">
         <div className="flex min-w-0 flex-1 items-center gap-4">
-          <div className="relative h-[88px] w-[88px] shrink-0 overflow-hidden rounded-xl border-[3px] border-white bg-white shadow-sm ring-1 ring-border/70">
+          <div className="relative h-[72px] w-[72px] shrink-0 overflow-hidden rounded-xl border-[3px] border-white bg-white shadow-sm ring-1 ring-border/70 sm:h-[88px] sm:w-[88px]">
             <Image
               src="/aboutimgs/pp3.jpg"
               alt="Vidhan Solanki profile illustration"
               fill
-              sizes="88px"
+              sizes="(max-width: 639px) 72px, 88px"
               className="object-cover"
             />
           </div>
 
           <div className="min-w-0 pr-12 sm:pr-20">
-            <h1 className="min-h-[1.4em] text-[21px] font-bold tracking-tight text-black sm:text-[25px]">
-              <span className={`pr-1 ${phase !== "done" ? "blink-cursor" : ""}`}>
+            <h1 className="min-h-[1.4em] whitespace-nowrap text-[17px] font-bold tracking-tight text-black sm:text-[25px]">
+              <span className="sm:hidden">Hi, I&apos;m Vidhan.</span>
+              <span className={`hidden pr-1 sm:inline ${phase !== "done" ? "blink-cursor" : ""}`}>
                 {displayText}
               </span>
             </h1>
@@ -246,7 +247,7 @@ export default function HeroSection() {
       </div>
 
       <div className="mt-10">
-        <div className="grid grid-cols-2 overflow-hidden rounded-lg border border-border/60 sm:grid-cols-5">
+        <div className="grid grid-cols-5 overflow-hidden rounded-lg border border-border/60">
           {contactLinks.map((contact, index) => {
             const ContactIcon = contact.icon;
 
@@ -256,19 +257,17 @@ export default function HeroSection() {
                 href={contact.href}
                 target={contact.href.startsWith("mailto:") ? undefined : "_blank"}
                 rel={contact.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
-                className={`group flex min-w-0 items-center gap-1.5 px-2.5 py-3 text-[13px] text-[#555] transition-colors hover:text-black ${
-                  index > 0 ? "sm:border-l sm:border-border/60" : ""
-                } ${index % 2 === 1 ? "max-sm:border-l max-sm:border-border/60" : ""} ${
-                  index >= 2 ? "max-sm:border-t max-sm:border-border/60" : ""
-                } ${index === contactLinks.length - 1 ? "max-sm:col-span-2" : ""}`}
+                className={`group flex min-w-0 items-center justify-center gap-1.5 px-1 py-2.5 text-[13px] text-[#555] transition-colors hover:text-black sm:justify-start sm:px-2.5 sm:py-3 ${
+                  index > 0 ? "border-l border-border/60" : ""
+                }`}
               >
                 <span className="grid h-9 w-9 shrink-0 place-items-center rounded-md border border-border bg-white/45 text-[17px]">
                   <ContactIcon aria-hidden="true" />
                 </span>
-                <span className="truncate">{contact.label}</span>
+                <span className="hidden truncate sm:inline">{contact.label}</span>
                 <FiArrowUpRight
                   aria-hidden="true"
-                  className="ml-auto shrink-0 text-[13px] text-[#888]"
+                  className="ml-auto hidden shrink-0 text-[13px] text-[#888] sm:block"
                 />
               </a>
             );

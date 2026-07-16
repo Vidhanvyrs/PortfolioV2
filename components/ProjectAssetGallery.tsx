@@ -14,6 +14,14 @@ export default function ProjectAssetGallery({ assets }: { assets?: ProjectAsset[
     setFailedAssets((current) => new Set(current).add(index));
   };
 
+  const orderedAssets = assets
+    .map((asset, sourceIndex) => ({ asset, sourceIndex }))
+    .sort((first, second) => {
+      if (first.asset.type === second.asset.type) return 0;
+      return first.asset.type === "video" ? -1 : 1;
+    });
+  const hasVideos = assets.some((asset) => asset.type === "video");
+
   return (
     <section className="mb-12 border-t border-border pt-12" aria-labelledby="project-gallery-title">
       <div className="mb-6 flex items-end justify-between gap-4">
@@ -26,16 +34,20 @@ export default function ProjectAssetGallery({ assets }: { assets?: ProjectAsset[
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2">
-        {assets.map((asset, index) => (
-          <figure
-            key={`${index}-${asset.type}-${asset.src}`}
-            aria-labelledby={`project-asset-caption-${index}`}
-            className={`overflow-hidden rounded-xl border border-border/60 bg-white/45 ${
-              index === 0 ? "sm:col-span-2" : ""
-            }`}
-          >
-            <div className={`relative bg-black/5 ${index === 0 ? "aspect-video" : "aspect-[4/3]"}`}>
-              {failedAssets.has(index) ? (
+        {orderedAssets.map(({ asset, sourceIndex }, displayIndex) => {
+          const spansFullWidth =
+            asset.type === "video" || (!hasVideos && displayIndex === 0);
+
+          return (
+            <figure
+              key={`${sourceIndex}-${asset.type}-${asset.src}`}
+              aria-labelledby={`project-asset-caption-${sourceIndex}`}
+              className={`overflow-hidden rounded-xl border border-border/60 bg-white/45 ${
+                spansFullWidth ? "sm:col-span-2" : ""
+              }`}
+            >
+              <div className={`relative bg-black/5 ${spansFullWidth ? "aspect-video" : "aspect-[4/3]"}`}>
+              {failedAssets.has(sourceIndex) ? (
                 <div className="flex h-full w-full flex-col items-center justify-center gap-2 text-[#888]">
                   <FiImage aria-hidden="true" className="text-[25px]" />
                   <span className="text-[11px]">Media unavailable</span>
@@ -45,11 +57,11 @@ export default function ProjectAssetGallery({ assets }: { assets?: ProjectAsset[
                   src={asset.src}
                   alt=""
                   fill
-                  sizes={index === 0 ? "(max-width: 720px) 100vw, 672px" : "(max-width: 640px) 100vw, 328px"}
+                  sizes={spansFullWidth ? "(max-width: 720px) 100vw, 672px" : "(max-width: 640px) 100vw, 328px"}
                   unoptimized={asset.src.toLowerCase().endsWith(".gif")}
                   className="object-contain"
                   style={{ objectPosition: asset.focalPoint ?? "50% 50%" }}
-                  onError={() => markAssetFailed(index)}
+                  onError={() => markAssetFailed(sourceIndex)}
                 />
               ) : (
                 <video
@@ -60,18 +72,19 @@ export default function ProjectAssetGallery({ assets }: { assets?: ProjectAsset[
                   preload="none"
                   className="h-full w-full object-contain"
                   style={{ objectPosition: asset.focalPoint ?? "50% 50%" }}
-                  onError={() => markAssetFailed(index)}
+                  onError={() => markAssetFailed(sourceIndex)}
                 />
               )}
             </div>
             <figcaption
-              id={`project-asset-caption-${index}`}
+              id={`project-asset-caption-${sourceIndex}`}
               className="border-t border-border/60 px-3 py-2 text-[11px] leading-relaxed text-[#777]"
             >
               {asset.alt}
             </figcaption>
           </figure>
-        ))}
+          );
+        })}
       </div>
     </section>
   );

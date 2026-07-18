@@ -187,7 +187,7 @@ export default function HeroSection() {
         <div className="flex min-w-0 flex-1 items-center gap-4">
           <div className="relative h-[72px] w-[72px] shrink-0 overflow-hidden rounded-xl border-[3px] border-white bg-white shadow-sm ring-1 ring-border/70 sm:h-[88px] sm:w-[88px]">
             <Image
-              src="/aboutimgs/pp3.jpg"
+              src="/aboutimgs/listeningpp.jpg"
               alt="Vidhan Solanki profile illustration"
               fill
               sizes="(max-width: 639px) 72px, 88px"

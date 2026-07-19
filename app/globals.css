@@ -127,6 +127,53 @@
   color: #f3f6f4;
 }
 
+.github-calendar-scroll {
+  scrollbar-color: #7f8e77 transparent;
+  scrollbar-width: thin;
+}
+
+.github-calendar-scroll::-webkit-scrollbar {
+  height: 5px;
+}
+
+.github-calendar-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.github-calendar-scroll::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: #7f8e77;
+}
+
+.react-activity-calendar__tooltip {
+  z-index: 100;
+  width: max-content;
+  max-width: calc(100vw - 20px);
+  border: 1px solid #526a51;
+  border-radius: 7px;
+  background: #26352b;
+  color: #f4f0e3;
+  padding: 5px 8px;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.2);
+  font-size: 11px;
+  line-height: 1.3;
+}
+
+.react-activity-calendar__tooltip-arrow {
+  fill: #26352b;
+}
+
+.react-activity-calendar__tooltip[data-color-scheme="dark"] {
+  border-color: #b7b097;
+  background: #e9e3d1;
+  color: #26352b;
+}
+
+.react-activity-calendar__tooltip[data-color-scheme="dark"]
+  .react-activity-calendar__tooltip-arrow {
+  fill: #e9e3d1;
+}
+
 .dark .blog-content,
 .dark .blog-content p,
 .dark .blog-content li {

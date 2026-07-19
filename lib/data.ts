@@ -44,18 +44,18 @@ export type ProjectCategory = "Personal Projects" | "Professional Work" | "Open 
 
 export type ProjectAsset =
   | {
-      type: "image";
-      src: string;
-      alt: string;
-      focalPoint?: `${number}% ${number}%`;
-    }
+    type: "image";
+    src: string;
+    alt: string;
+    focalPoint?: `${number}% ${number}%`;
+  }
   | {
-      type: "video";
-      src: string;
-      alt: string;
-      poster?: string;
-      focalPoint?: `${number}% ${number}%`;
-    };
+    type: "video";
+    src: string;
+    alt: string;
+    poster?: string;
+    focalPoint?: `${number}% ${number}%`;
+  };
 
 export interface Project {
   slug: string;
@@ -493,6 +493,6 @@ export const currentlyData = [
   },
   {
     label: "Reading",
-    value: "Principles of Building AI agents, multiple md files meant for agents, and silly X posts",
+    value: "The Boar Book (DDIA), multiple md files meant for agents, and silly X posts",
   },
 ] as const;
